@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Healler from '/Outdoor.png'
 
 
 function LandingPage() {
@@ -65,13 +66,13 @@ function LandingPage() {
                         </section>
                         <section className="bg-teal-200 mt-24 flex justify-around items-center">
                             <div>
-                                <img src="../Outdoor.png" alt="Outdoor" className="w-72" />
+                                <img src={Healler} loading="lazy" alt="Outdoor" className="w-72" />
                             </div>
                             <div className="w-80 mr-4">
                                 <p className="text-4xl font-bold">Join Healler Today</p>
                                 <span className="text-gray-500 block text-sm text-center mt-2 mb-4">By peer-reviewing every article posted on Healler, you are sure of every post.</span>
                                 <div className="flex justify-between items-center">
-                                    <img src="../Vector.png" alt="Vector" className="w-20" />
+                                    <img src={Healler} loading="lazy" alt="Vector" className="w-20" />
                                     <div className="flex flex-col">
                                         <a href="" className="bg-teal-300 w-52 h-8 text-white rounded-md text-center">Download on Play Store</a>
                                         <a href="" className="bg-teal-300 w-52 h-8 text-white rounded-md text-center mt-2">Download on App Store</a>
