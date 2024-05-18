@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Healler from '/Outdoor.png'
+import Frame from '/Frame.png'
 
 
 function LandingPage() {
@@ -23,7 +24,7 @@ function LandingPage() {
                     <img src='../Group.png' alt="Healler" className='w-8 mt-2 ml-4' />
                     <div className="flex flex-col items-center">
                         <h1 className="uppercase w-52 mt-4 mb-8 text-2xl text-center">Meet doctors, find symptoms, all in one place.</h1>
-                        <img src="../Frame.png" alt="" className="mb-8" />
+                        <img src={Frame} alt="" className="mb-8" />
                         <Link to='/signup'>
 
                             <button className="w-72 bg-teal-400 p-2 mb-2 rounded-full h-12 text-white text-lg">Create an account</button>
