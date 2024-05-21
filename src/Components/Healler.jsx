@@ -3,18 +3,35 @@ import postIcon from '/postSvg.svg'
 import homeIcon from '/homeSvg.svg'
 import stethoIcon from '/doctor.png'
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { AuthContext } from './AuthContext'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 
 const Healler = () => {
+  const { isAuthenticated } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(!isAuthenticated) {
+      navigate('/signin');
+    }
+  }, [isAuthenticated, navigate])
+
+  if (!isAuthenticated) {
+    return null;
+  }
+
   return(
     <div className='mt-2'>
       <header className='bg-white fixed w-full bottom-0 '>
         <nav className=''>
-          <ul className='flex justify-around items-center text-gray-500'>
+          <ul className='flex justify-around items-center text-gray-500 mt-2'>
             <li> <Link><img src={searchIcon} alt="Search"/> <span>Search</span></Link> </li>
             <li><Link> <img src={postIcon} alt="Post" /><span>Post</span></Link></li>
             <li> <Link><img src={homeIcon} alt="Healler" /><span>Home</span></Link></li>
-            <li className='border border-red-500'><Link className=''><img src={stethoIcon} alt="Stetho"  /><span>Consultation</span></Link></li>
+            <li><Link><img src={stethoIcon} alt="Stetho" className='mx-auto'  /><span>Consultation</span></Link></li>
           </ul>
         </nav>
       </header>

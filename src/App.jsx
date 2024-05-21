@@ -3,21 +3,21 @@ import LandingPage from './Components/LandingPage'
 import NotFound from './Components/NotFound'
 import Signin from './Components/Signin'
 import SignUp from './Components/Signup'
-import Healler from './Components/Healler'
 import './App.css'
+import Healler from './Components/Healler'
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/signin" element={<Signin />} />
+        <Route path="/signin" element={<Signin />}/>
         <Route path="/signup" element={<SignUp />} />
         <Route path='/main' element={<Healler />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </Router>
- )
+  )
 }
 
 export default App

@@ -1,15 +1,36 @@
+import { useContext } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "./AuthContext";
 
 function Signin() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    const { setIsAuthenticated } = useContext(AuthContext)
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if(email === useStore[0].email && password === useStore[0].password){
+
+            console.log('login successful');
+            setIsAuthenticated(true)
+            navigate('/main')
+            
+        } else{
+            alert(`Invalid email or password`)
+        }
     }
 
+    const useStore = [
+        {
+            name: 'wariz',
+            email: 'k@g.com',
+            password: '12345'
+        }
+    ]
 
     return (
         <>
@@ -69,15 +90,12 @@ function Signin() {
                         </div>
 
                         <div>
-                            <Link to='/main'>
-
                             <button
                                 type="submit"
                                 className="flex w-full justify-center rounded-md bg-teal-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-teal-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
                             >
                                 Sign in
                             </button>
-                            </Link>
                         </div>
                     </form>
                     <div className="flex justify-center items-center gap-3 mt-8 mb-8">
