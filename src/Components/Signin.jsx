@@ -13,6 +13,9 @@ function Signin() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        //Test how this works
+        // const { email, password} = e.target.elements;
         if(email === useStore[0].email && password === useStore[0].password){
 
             console.log('login successful');

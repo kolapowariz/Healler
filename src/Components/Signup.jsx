@@ -12,6 +12,7 @@ function SignUp() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Account created successfully');
+        alert('Account created successfully. Please login')
         navigate('/signin')
     
     }
