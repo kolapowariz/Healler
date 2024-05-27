@@ -7,11 +7,42 @@ import { useContext } from 'react'
 import { AuthContext } from './AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
+import axios from 'axios';
+import { useState } from 'react'
+// import { data } from 'autoprefixer/lib/autoprefixer'
+
 
 
 const Healler = () => {
+  const [post, setPost] = useState([]);
   const { isAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  // const fetchData = () => {
+  //   fetch('https://jsonplaceholder.org/posts')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       if (Array.isArray(data)) {
+  //         console.log('data is array', data);
+  //         setPost(data)
+  //       } else {
+  //         console.log('Data is not an array:', data);
+  //       }
+  //     })
+  //     .catch(error => console.log(error))
+  // }
+
+
+  const fetchDataWithAxios = () => {
+    axios.get('https://dummyapi.online/api/social-profiles')
+      .then(response => setPost(response.data))
+      .catch(error => console.log(error))
+  }
+
+  useEffect(() => {
+    // fetchData()
+    fetchDataWithAxios()
+  }, [])
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -22,6 +53,9 @@ const Healler = () => {
   if (!isAuthenticated) {
     return null;
   }
+
+
+
 
   return (
     <div className='mt-2'>
@@ -36,57 +70,19 @@ const Healler = () => {
         </nav>
       </header>
       <main className='w-11/12 mx-auto mb-16 '>
-
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea doloremque doloribus suscipit saepe. Amet provident aspernatur ratione mollitia commodi, minima exercitationem, delectus veritatis dolor hic nihil dolorum, laboriosam vel dicta.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet minus, incidunt iusto in, rem eos totam placeat at, atque nobis. Perspiciatis laboriosam nisi enim illum minus, deleniti facilis beatae.
-        </p>
+        <div >
+          {post ? <div>
+            <ul>
+              {post.map((posted) => (
+                <li key={posted.userId} className='h-auto border mt-4'>
+                  <p>{posted.username}</p>
+                  <p>{posted.bio}</p>
+                  <img src={posted.profilePic} alt="" className='rounded-full w-28' />
+                </li>
+              ))}
+            </ul>
+          </div> : <div>Loading...</div>}
+        </div>
       </main>
     </div>
   )

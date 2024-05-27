@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
+import OtherAuth from "./OtherAuth";
 
 function Signin() {
 
@@ -16,13 +17,13 @@ function Signin() {
 
         //Test how this works
         // const { email, password} = e.target.elements;
-        if(email === useStore[0].email && password === useStore[0].password){
+        if (email === useStore[0].email && password === useStore[0].password) {
 
             console.log('login successful');
             setIsAuthenticated(true)
             navigate('/main')
-            
-        } else{
+
+        } else {
             alert(`Invalid email or password`)
         }
     }
@@ -102,36 +103,14 @@ function Signin() {
                         </div>
                     </form>
                     <div className="flex justify-center items-center gap-3 mt-8 mb-8">
-                    <hr className="w-36" />
-                    <p className="text-center font-bold">OR</p>
-                    <hr className="w-36" />
+                        <hr className="w-36" />
+                        <p className="text-center font-bold">OR</p>
+                        <hr className="w-36" />
+                    </div>
+<OtherAuth />
+
                 </div>
-                <div className="mb-4">
-                    <button
-                        type="submit"
-                        className="flex w-full justify-center border border-teal-400 rounded-full  px-3 py-1.5 text-md font-semibold leading-6 text-black shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
-                    >
-                        Sign in with Phone
-                    </button>
-                </div>
-                <div className="mb-4">
-                    <button
-                        type="submit"
-                        className="flex w-full justify-center border border-teal-400 rounded-full  px-3 py-1.5 text-md font-semibold leading-6 text-black shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
-                    >
-                        Sign in with Google
-                    </button>
-                </div>
-                <div className="mb-4">
-                    <button
-                        type="submit"
-                        className="flex w-full justify-center border border-teal-400 rounded-full  px-3 py-1.5 text-md font-semibold leading-6 text-black shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
-                    >
-                        Sign in with Apple
-                    </button>
-                </div>
-                </div>
-                
+
             </div>
         </>
 

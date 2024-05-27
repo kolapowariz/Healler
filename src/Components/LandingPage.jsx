@@ -3,6 +3,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Healler from '/Outdoor.png'
 import Frame from '/Frame.png'
+import Appstore from '/Appstore.png';
+import Playstore from '/Playstore.png';
+import Vector from '/Vector.png'
 
 
 function LandingPage() {
@@ -73,13 +76,31 @@ function LandingPage() {
                                 <p className="text-4xl font-bold">Join Healler Today</p>
                                 <span className="text-gray-500 block text-sm text-center mt-2 mb-4">By peer-reviewing every article posted on Healler, you are sure of every post.</span>
                                 <div className="flex justify-between items-center">
-                                    <img src={Healler} loading="lazy" alt="Vector" className="w-20" />
+                                    <img src={Vector} loading="lazy" alt="Vector" className="w-20" />
                                     <div className="flex flex-col">
-                                        <a href="" className="bg-teal-300 w-52 h-8 text-white rounded-md text-center">Download on Play Store</a>
-                                        <a href="" className="bg-teal-300 w-52 h-8 text-white rounded-md text-center mt-2">Download on App Store</a>
+                                        <div className="bg-teal-300 w-56 h-10 text-white rounded-md text-center flex justify-evenly items-center">
+                                            <div>
+                                                
+                                            <img src={Playstore} alt="Playstore" className="w-5" />
+                                            </div>
+                                            <a href=""> Download on Play Store</a>
+                                        </div>
+                                        <div className="bg-teal-300 w-56 h-10 text-white rounded-md text-center mt-2 flex justify-evenly items-center">
+                                            <div>
+
+                                            <img src={Appstore} alt="Appstore" className="w-5" />
+                                            </div>
+                                            <a href="">Download on App Store</a>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
+                        </section>
+                        <section className="my-10 text-center">
+                            <h3 className="text-2xl">What Do Our Users say About Us?</h3>
+                            <p>Our 20,000+ customers have only positive things to say about us!
+                                Take a look.</p>
                         </section>
                     </main>
                 </section>
