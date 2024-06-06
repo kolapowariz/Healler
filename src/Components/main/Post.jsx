@@ -19,10 +19,13 @@ const Post = () => {
   }
 
   return (
-    <main>
+    <div className="lg:w-2/3 mx-auto">
+
       <Navigation />
-      <h2>Hello post</h2>
+    <main>
+      <h2 className="mt-4 ml-2 text-center text-2xl">Hello post, under maintenance</h2>
     </main>
+    </div>
   )
 }
 

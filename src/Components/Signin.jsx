@@ -18,8 +18,6 @@ function Signin() {
         //Test how this works
         // const { email, password} = e.target.elements;
         if (email !== '' && password !== '') {
-
-            alert('Login Successful. Welcome ', email);
             setIsAuthenticated(true)
             navigate('/home')
 
