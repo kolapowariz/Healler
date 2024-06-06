@@ -12,6 +12,7 @@ import Navigation from './main/Navigation';
 const Healler = () => {
   const [post, setPost] = useState([]);
   const { isAuthenticated } = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(true)
   const navigate = useNavigate();
 
   // const fetchData = () => {
@@ -29,14 +30,20 @@ const Healler = () => {
   // }
 
 
-  const fetchDataWithAxios = () => {
-    axios.get('https://dummyapi.online/api/social-profiles')
-      .then(response => setPost(response.data))
-      .catch(error => console.log(error))
-  }
+
 
   useEffect(() => {
-    // fetchData()
+    const fetchDataWithAxios = async () => {
+      setIsLoading(true)
+      try {
+        const response = await axios.get('https://dummyapi.online/api/social-profiles')
+        setPost(response.data)
+      } catch(error) {
+        console.log(error);
+      } finally{
+        setIsLoading(false)
+      }
+    }
     fetchDataWithAxios()
   }, [])
 
@@ -49,6 +56,9 @@ const Healler = () => {
   if (!isAuthenticated) {
     return null;
   }
+  if(isLoading){
+    return <div>Loading...</div>
+  }
 
 
 
@@ -57,8 +67,6 @@ const Healler = () => {
     <div className='mt-2'>
       <Navigation />
       <main className='w-11/12 mx-auto mb-16 '>
-        <div >
-          {post ? <div>
             <ul>
               {post.map((posted) => (
                 <li key={posted.userId} className='h-auto border mt-4 px-4 py-4 rounded-lg shadow-md'>
@@ -68,8 +76,6 @@ const Healler = () => {
                 </li>
               ))}
             </ul>
-          </div> : <div>Loading...</div>}
-        </div>
       </main>
     </div>
   )

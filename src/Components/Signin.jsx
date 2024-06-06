@@ -17,9 +17,9 @@ function Signin() {
 
         //Test how this works
         // const { email, password} = e.target.elements;
-        if (email === useStore[0].email && password === useStore[0].password) {
+        if (email !== '' && password !== '') {
 
-            console.log('login successful');
+            alert('Login Successful. Welcome ', email);
             setIsAuthenticated(true)
             navigate('/home')
 
@@ -28,13 +28,13 @@ function Signin() {
         }
     }
 
-    const useStore = [
-        {
-            name: 'wariz',
-            email: 'k@g.com',
-            password: '12345'
-        }
-    ]
+    // const useStore = [
+    //     {
+    //         name: 'wariz',
+    //         email: 'k@g.com',
+    //         password: '12345'
+    //     }
+    // ]
 
     return (
         <>
