@@ -30,7 +30,7 @@ const Consultation = () => {
       <main className='w-11/12 mx-auto mb-16 '>
         <ul>
           {posts.map((posted) => (
-            <li key={posted.userId} className='h-auto border mt-4 px-4 py-4 rounded-lg shadow-md text-xl'>
+            <li key={posted.userId} className='h-auto border mt-4 px-4 py-4 rounded-lg shadow-md text-sm'>
               <p>{posted.fullName}</p>
               <p>{posted.work}</p>
               <p>{posted.username}</p>
@@ -39,7 +39,6 @@ const Consultation = () => {
               <p>{posted.followersCount}</p>
               <p>{posted.followingCount}</p>
               <p>{posted.gender}</p>
-              <p>{posted.hobbies}</p>
               <p>{posted.joinedDate}</p>
             </li>
           ))}
