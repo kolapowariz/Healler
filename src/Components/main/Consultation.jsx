@@ -8,19 +8,19 @@ import { DataContext } from "../PostContext";
 const Consultation = () => {
 
   const { isAuthenticated } = useContext(AuthContext);
-  const { posts, isLoading} = useContext(DataContext)
+  const { posts, isLoading } = useContext(DataContext)
   const navigate = useNavigate()
   useEffect(() => {
-    if(!isAuthenticated){
+    if (!isAuthenticated) {
       navigate('/signin')
     }
   }, [isAuthenticated, navigate])
 
-  if(!isAuthenticated){
+  if (!isAuthenticated) {
     return null;
   }
 
-  if(isLoading){
+  if (isLoading) {
     return <div className='text-center text-3xl mt-4'>Loading...</div>
   }
 

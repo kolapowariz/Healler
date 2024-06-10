@@ -7,8 +7,7 @@ import { DataProvider } from './Components/PostContext.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <AuthProvider>
     <DataProvider>
-
-    <App />
+      <App />
     </DataProvider>
   </AuthProvider>
 )

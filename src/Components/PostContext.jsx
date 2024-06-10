@@ -5,11 +5,11 @@ import { createContext } from "react";
 
 
 
- export const DataContext = createContext()
+export const DataContext = createContext()
 
 export const DataProvider = ({ children }) => {
-  const [ posts, setPost] = useState(null);
-  const [ isLoading, setIsLoading] = useState(null);
+  const [posts, setPost] = useState(null);
+  const [isLoading, setIsLoading] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,10 +22,10 @@ export const DataProvider = ({ children }) => {
     fetchData();
   }, [])
 
-  return(
-    <DataContext.Provider value={{ posts, isLoading}}>
+  return (
+    <DataContext.Provider value={{ posts, isLoading }}>
       {children}
     </DataContext.Provider>
   )
- }
+}
 
