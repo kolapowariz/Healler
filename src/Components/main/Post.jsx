@@ -18,7 +18,7 @@ const Post = () => {
   }
 
   return (
-    <div className="lg:w-2/3 mx-auto">
+    <div className="mt-2 mx-auto">
 
       <Navigation />
       <main>
